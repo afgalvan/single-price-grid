@@ -1,0 +1,147 @@
+@import "./utilities";
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: $karla;
+  background-color: $lightGray;
+  text-rendering: optimizeSpeed;
+}
+
+.main-content {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+}
+
+.card {
+  background-color: white;
+  display: flex;
+  flex-flow: column;
+  width: rem(660);
+  border-radius: $borderRadius;
+  box-shadow: 0 15px 20px rgba(0, 0, 0, 0.2);
+
+  &-head {
+    padding: rem(25) rem(40);
+    color: $grayishBlue;
+
+    &__title {
+      .main-title {
+        margin-bottom: rem(20);
+        color: $cyan;
+      }
+
+      .sub-title {
+        color: $brightYellow;
+        font-size: large;
+      }
+    }
+
+    &__description {
+      line-height: 1.5;
+    }
+  }
+
+  &-foot {
+    display: flex;
+    border-radius: 0 0 $borderRadius $borderRadius;
+    flex-wrap: wrap;
+    color: white;
+
+    .card-left {
+      width: rem(250);
+      background-color: $cyan;
+      padding: rem(25) rem(40) rem(35);
+      border-radius: 0 0 0 $borderRadius;
+
+      &__title {
+        font-size: large;
+      }
+
+      &__pricing {
+        .price {
+          font-weight: 700;
+          font-size: rem(35);
+        }
+
+        .price-period {
+          color: $lightGray;
+          opacity: 0.6;
+        }
+      }
+
+      &__description {
+        margin-bottom: rem(30);
+      }
+
+      &__btn {
+        display: block;
+        color: white;
+        font-weight: 700;
+        text-decoration: none;
+        font-size: large;
+        text-align: center;
+        background-color: $brightYellow;
+        padding: rem(13) 0;
+        border-radius: rem(5);
+        transition: all 0.2s ease-in;
+        box-shadow: 0 0 7px rgba(0, 0, 0, 0.1);
+
+        &:hover {
+          box-shadow: 0 7px 8px rgba(0, 0, 0, 0.2);
+          transform: translateY(rem(-2));
+        }
+      }
+    }
+
+    .card-right {
+      width: rem(250);
+      background-color: $lightCyan;
+      padding: rem(25) rem(40) rem(35);
+      border-radius: 0 0 $borderRadius;
+
+      &__title {
+        font-size: large;
+      }
+
+      &__list {
+        list-style: none;
+        padding-left: 0;
+        opacity: 0.8;
+
+        .list-item {
+          line-height: rem(22);
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: rem(800)) {
+  .card {
+    margin: rem(50) 0;
+    width: rem(500);
+
+    &-foot {
+      flex-flow: column;
+      .card-left {
+        width: 80%;
+        padding: 10%;
+        border-radius: 0;
+      }
+
+      .card-right {
+        width: 80%;
+        padding: 10%;
+        border-bottom-left-radius: $borderRadius;
+      }
+    }
+  }
+}
+
+@media (max-width: rem(550)) {
+  .card {
+    width: 90%;
+  }
+}
